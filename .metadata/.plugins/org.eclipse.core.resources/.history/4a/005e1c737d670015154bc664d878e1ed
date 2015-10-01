@@ -1,0 +1,40 @@
+package JavaProject;
+
+import java.io.IOException;
+import java.sql.Connection;
+
+import javax.servlet.http.HttpServlet;
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
+
+public class SurveyContrller  extends HttpServlet {
+
+	private static final long serialVersionUID = 1L;
+
+	public void doGet(HttpServletRequest request, HttpServletResponse response){
+		System.out.println("post method");
+	}
+	
+	public void doPost(HttpServletRequest req, HttpServletResponse res)
+			throws IOException {
+			
+		String str = req.getParameter("Fname");
+		System.out.println(str);
+			    
+			}
+	
+	public boolean dbconnection(){
+		boolean result = false;
+		
+		String URL = "jdbc:oracle:thin:@amrood:1521:EMP";
+		String USER = "username";
+		String PASS = "password";
+		Connection conn = null;
+				
+		Connection conn = DriverManager.getConnection(URL, USER, PASS);
+		
+		
+		return result;
+	}
+
+}

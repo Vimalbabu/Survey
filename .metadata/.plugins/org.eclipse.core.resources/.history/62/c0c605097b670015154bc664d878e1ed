@@ -1,0 +1,22 @@
+package JavaProject;
+
+import java.io.IOException;
+
+import javax.servlet.http.HttpServlet;
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
+
+public class SurveyContrller  extends HttpServlet {
+	
+	public void doGet(HttpServletRequest request, HttpServletResponse response){
+		System.out.println("post method");
+	}
+	
+	public void doPost(HttpServletRequest req, HttpServletResponse res)
+			throws IOException {
+			
+		
+			    
+			}
+
+}

@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+   <servlet>
+        <servlet-name>Answer</servlet-name>
+        <servlet-class>RemoveAbbr</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>Answer</servlet-name>
+        <url-pattern>/Answer</url-pattern>
+    </servlet-mapping>

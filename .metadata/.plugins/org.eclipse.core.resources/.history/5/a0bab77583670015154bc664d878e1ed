@@ -1,0 +1,116 @@
+package JavaProject;
+
+import java.io.IOException;
+import java.sql.Connection;
+import java.sql.DriverManager;
+import java.sql.PreparedStatement;
+
+import javax.servlet.http.HttpServlet;
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
+
+public class SurveyContrller  extends HttpServlet {
+
+	private static final long serialVersionUID = 1L;
+
+	public void doGet(HttpServletRequest request, HttpServletResponse response){
+		System.out.println("post method");
+	}
+	
+	public void doPost(HttpServletRequest req, HttpServletResponse res)
+			throws IOException {
+			
+		String fname = req.getParameter("Fname");
+		System.out.println(fname);
+		
+		String lname = req.getParameter("Lname");
+		System.out.println(lname);
+		
+		String email = req.getParameter("Email");
+		System.out.println(email);
+		
+		String phone = req.getParameter("Phone");
+		System.out.println(phone);
+		
+		String state = req.getParameter("State");
+		System.out.println(state);
+		
+		String product = req.getParameter("Product");
+		System.out.println(product);
+		
+		int q1 = Integer.parseInt(req.getParameter("Q1"));
+		System.out.println(q1);
+		
+		int q2 = Integer.parseInt(req.getParameter("Q2"));
+		System.out.println(q2);
+		
+		int q3 = Integer.parseInt(req.getParameter("Q3"));
+		System.out.println(q3);
+			    
+		int q4 = Integer.parseInt(req.getParameter("Q4"));
+		System.out.println(q4);
+		
+		int q5 = Integer.parseInt(req.getParameter("Q5"));
+		System.out.println(q5);
+		
+		int q6 = Integer.parseInt(req.getParameter("Q6"));
+		System.out.println(q6);
+		
+		int q7 = Integer.parseInt(req.getParameter("Q7"));
+		System.out.println(q7);
+		
+		int q8 = Integer.parseInt(req.getParameter("Q8"));
+		System.out.println(q8);
+		
+		int q9 = Integer.parseInt(req.getParameter("Q9"));
+		System.out.println(q9);
+		
+		int q10 = Integer.parseInt(req.getParameter("Q10"));
+		System.out.println(q10);
+		
+		boolean response = dbconnection ( fname, lname, email, phone, state, product, q1, q2, q3, q4, q5, q6, q7, q8, q9, q10 );
+		
+		System.out.println(response);
+		
+		
+			}
+	
+	public boolean dbconnection(String fname, String lname, String email, String phone, String state, String product, int q1, int q2, int q3, int q4, int q5, int q6, int q7, int q8, int q9, int q10){
+		boolean result = false;
+		
+		String URL = "jdbc:mysql://localhost:3306/hachathon";
+		String USER = "root";
+		String PASS = "verizon@123";
+		
+		String sql="insert into survey ( firstname, lastname, email, phone, state, product, q1rating, q2rating, q3rating, q4rating, q5rating, q6rating, q7rating, q8rating, q9rating, q10rating ) values ( ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ? )";
+		
+       try{		
+    	  Class.forName("com.mysql.jdbc.Driver"); 
+		  Connection conn = DriverManager.getConnection(URL, USER, PASS);
+		  PreparedStatement pst = conn.prepareStatement(sql);
+		  pst.setString(1,  fname);
+		  pst.setString(2,  lname);
+		  pst.setString(3,  email);
+		  pst.setString(4, phone);
+		  pst.setString(5, state);
+		  pst.setString(6, product);
+		  pst.setInt(7, q1);
+		  pst.setInt(8, q2);
+		  pst.setInt(9, q3);
+		  pst.setInt(10, q4);
+		  pst.setInt(11, q5);
+		  pst.setInt(12, q6);
+		  pst.setInt(13, q7);
+		  pst.setInt(14, q8);
+		  pst.setInt(15, q9);
+		  pst.setInt(17, q10);
+		  pst.execute();		
+		}catch(Exception e){
+			
+		}
+		
+		
+		return result;
+	}
+
+}
