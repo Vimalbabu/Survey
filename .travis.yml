@@ -5,5 +5,5 @@ deploy:
   username: vimalbabu.sampathkumar@verizon.com 
   password: Pass19!(
   api: https://api.run.pivotal.io 
-  organization: hskramesh 
+  organization: personal 
   space: development 
