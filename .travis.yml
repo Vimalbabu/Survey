@@ -1,0 +1,9 @@
+language: java 
+jdk: openjdk6 
+deploy: 
+  provider: cloudfoundry 
+  username: vimalbabu.sampathkumar@gmail.com 
+  password: Pass19!(
+  api: https://api.run.pivotal.io 
+  organization: hskramesh 
+  space: development 
